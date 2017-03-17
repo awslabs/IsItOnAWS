@@ -1,0 +1,2 @@
+Lambda function that receives messages containing the AWS ip-ranges file
+and updates another Lambda function that provides the isitonaws functionality.
