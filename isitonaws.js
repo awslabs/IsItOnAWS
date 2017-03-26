@@ -110,7 +110,7 @@ exports.handler = function isItOnAWS(event, context) {
 	console.log("NoQuery");
 	context.succeed({
 	  "statusCode": 200,
-	  "headers": { "Content-type": "text/html" },
+	  "headers": { "Content-type": "text/html; charset=utf-8" },
 	  "body": html
 	});
       } else {
@@ -124,7 +124,7 @@ exports.handler = function isItOnAWS(event, context) {
 	console.log("ouch! " + err);
 	context.succeed({
 	  "statusCode": 200,
-	  "headers": { "Content-type": "text/html" },
+	  "headers": { "Content-type": "text/html; charset=utf-8" },
 	  "body": html.replace(ANSWER, newPara)
 	});
       }
@@ -133,7 +133,7 @@ exports.handler = function isItOnAWS(event, context) {
       // if we get here we have found a IP range to display in the output
       context.succeed({
 	"statusCode": 200,
-	"headers": { "Content-type": "text/html" },
+	"headers": { "Content-type": "text/html; charset=utf-8" },
 	"body": result
       });
     }
