@@ -67,3 +67,31 @@ test('extract and sort ranges', function(t) {
   t.end();
   
 });
+
+
+test('handle overlapping ranges', function(t) {
+
+  var data = `{
+    "syncToken": "1480979949",
+    "createDate": "2016-12-05-23-19-09",
+    "prefixes": [
+      {
+	"ip_prefix": "34.192.0.0/12",
+	"region": "us-east-1",
+	"service": "EC2"
+      },
+      {
+	"ip_prefix": "34.195.252.0/24",
+	"region": "us-east-1",
+	"service": "CLOUDFRONT"
+      }
+    ],
+    "ipv6_prefixes": [
+    ]
+  } `;
+
+  var j = JSON.parse(data);
+  var output = builder.build(j, rf);
+  t.equal(output.length, 1);
+  t.end();
+});
